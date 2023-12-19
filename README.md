@@ -97,3 +97,4 @@ Como primeira abordagem para esse site, observei as mensagens trocadas via web s
 Tentei traçar o caminho para usar o mínimo possível de mensagens e reproduzir a comunicação.
 Ainda não consegui obter os dados, mas a conexão foi estabelecida e várias mensagens foram trocadas com sucesso.
 O script [santa_catarina/passo1.py](santa_catarina/passo1.py) exemplifica a troca de mensagens.
+Se aprofundada, essa abordagem provavelmente será bem sucedida. Mas caso contrário, uma alternativa seria usar o selenium.
