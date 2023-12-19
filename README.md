@@ -32,7 +32,7 @@ Porém, notei que o site utiliza o reCaptcha no formulário inicial e também no
 A imagem a seguir exibe a requisição enviada ao clicar no botão "Pesquisar".
 É possível observar um conjunto de parâmetros resultantes do preenchimento, mas, além desses, o parâmetro `g-recaptcha-response` é adicionado dinamicamente. Diferentemente do reCaptcha que solicita um imput do usuário, esse é invisível e usa dados de navagação para distinguir se é um robô que está realizando a solicitação.
 
-![image](bahia/images/1.png)
+![image](images/1.png)
 
 Isso inviabilizou a abordagem de simular as requisições.
 
@@ -83,3 +83,9 @@ Um exemplo do resultado obtido poder ser verificado em [bahia/dados/expenses.csv
 1. Procurar por um endpoint na API de webservices que forneça os detalhes das despesas. É provável que ele exista, mas não é certo.
 2. Entrar em contato com o responsável técnico no TCM e verificar se os endpoints podem ser disponibilizados.
 3. Procurar por uma outra possível fonte dessas informações.
+
+
+# TCM-SC
+
+O site do TCM de Santa Catarina não realiza requisições http para obter os dados.
+Os dados estão disponíveis em um dashboard do Qlick sense e a comunicação com o dashboard é feita via web socket.
