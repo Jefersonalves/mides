@@ -3,7 +3,7 @@ from pathlib import Path
 import scrapy
 
 
-class QuotesSpider(scrapy.Spider):
+class TCMBASpider(scrapy.Spider):
     name = "bahia"
     allowed_domains = ["tcm.ba.gov.br"]
     BASE_URL = "https://www.tcm.ba.gov.br"
