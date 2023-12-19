@@ -21,7 +21,7 @@ A página de um documento é bem detalhada e contém seções de Dados Básicos,
 ### Passo 1
 A ideia inicial foi criar um projeto com Scrapy.
 Em primeiro lugar, observar o dev tools e reproduzir as requisições feitas pelo site a fim de obter
-os dados. E desenvovli o spider simples [passo1.py](passo1.py).
+os dados. E desenvovli o spider simples [bahia/passo1.py](bahia/passo1.py).
 O spider pode ser executado com o comando:
 
 ```bash
@@ -32,16 +32,16 @@ Porém, notei que o site utiliza o reCaptcha no formulário inicial e também no
 A imagem a seguir exibe a requisição enviada ao clicar no botão "Pesquisar".
 É possível observar um conjunto de parâmetros resultantes do preenchimento, mas, além desses, o parâmetro `g-recaptcha-response` é adicionado dinamicamente. Diferentemente do reCaptcha que solicita um imput do usuário, esse é invisível e usa dados de navagação para distinguir se é um robô que está realizando a solicitação.
 
-![image](images/1.png)
+![image](bahia/images/1.png)
 
 Isso inviabilizou a abordagem de simular as requisições.
 
 ### Passo 2
 
-Desenvolvi também o script [passo2.py](passo2.py) usando o selenium para tentar simular uma navegação mais próxima da que um ser humano faria e ver como seria o resultado. O script pode ser executado com o comando:
+Desenvolvi também o script [bahia/passo2.py](bahia/passo2.py) usando o selenium para tentar simular uma navegação mais próxima da que um ser humano faria e ver como seria o resultado. O script pode ser executado com o comando:
 
 ```
-python passo2.py
+python bahia/passo2.py
 ```
 ou iterativamente no Ipython ou Jupyter notebook.
 Porém, nessa abordagem, muitas requisições falharam e os objetos de despesas vieram vazios.
@@ -72,9 +72,11 @@ Como alternativa, busquei por pistas de requisições a outras APIs feitas pelo 
 
 Também observei que o endpoint para exportar os dados como PDF não está protegido com reCaptcha.
 Isso possibilitou a extração dos dados básicos disponíveis nesse relatório.
-E o resultado foi o script [passo3.py](passo3.py).
-Porém, esse script ainda não retorna todos os dados necessários.
+E o resultado foi o script [bahia/passo3.py](bahia/passo3.py).
+Porém, esse script não retorna todos os dados necessários, apenas os dados básicos.
+O script também não está completo, ainda é preciso iterar por todas as cidades disponíveis.
 
+Um exemplo do resultado obtido poder ser verificado em [bahia/dados/expenses.csv](bahia/dados/expenses.csv)
 
 ## Recomendações
 
