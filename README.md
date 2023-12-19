@@ -7,7 +7,7 @@ dos Tribunais de Contas Estaduais (TCEs)
 
 ## Sobre o site
 
-O site do [TCM da Bahia](https://www.tcm.ba.gov.br/controle-social/consulta-de-despesas/)possui um formulário de consulta de despesas.
+O site do [TCM da Bahia](https://www.tcm.ba.gov.br/controle-social/consulta-de-despesas/) possui um formulário de consulta de despesas.
 
 O formulário possui campos com valores preenchidos inicialmente e outros que são atualizados após a seleção de um valor diferente. Por exemplo, o campo "entidade" é preenchido após a seleção de um município.
 
@@ -21,7 +21,7 @@ A página de um documento é bem detalhada e contém seções de Dados Básicos,
 ### Passo 1
 A ideia inicial foi criar um projeto com Scrapy.
 Em primeiro lugar, observar o dev tools e reproduzir as requisições feitas pelo site a fim de obter
-os dados. E desenvovli o spider simples [bahia/passo1.py](bahia/passo1.py).
+os dados. Então desenvovli o spider simples [bahia/passo1.py](bahia/passo1.py).
 O spider pode ser executado com o comando:
 
 ```bash
@@ -48,27 +48,35 @@ Porém, nessa abordagem, muitas requisições falharam e os objetos de despesas 
 
 ### Passo 3
 
-Como alternativa, busquei por pistas de requisições a outras APIs feitas pelo site. Notei que, enquanto o site carrega, são feitas algumas requisições para a API https://webservice.tcm.ba.gov.br. Essa API possui alguns endpoints interessantes:
+Como alternativa, busquei por pistas de requisições para outras APIs feitas pelo site. Notei que, enquanto o site carrega, são feitas algumas requisições para a API https://webservice.tcm.ba.gov.br. Essa API possui alguns endpoints interessantes:
 * `/despesas/orgao`: retorna os órgãos de um município e entidade. Ex: 
+```json
 {
   "de_Orgao": "CAMARA MUNICIPAL",
   "cd_Orgao": "1"
 }
+``````
 * `/despesas/recurso`: retorna as fontes de recursos. Ex:
+```json
 {
     "de_FonteRecurso": "Recursos não Vinculados de Impostos",
     "cd_FonteRecurso": "1500"
-} 
+}
+```
 * `/despesas/entidade`: retorna a lista de entidades de um minícipio. Ex:
+```json
 {
     "nm_Unidade": "Prefeitura Municipal de ABAÍRA",
     "cd_Unidade": "1"
 }
+```
 * `/despesas/despesa`: retorna a lista de despesas de uma entidade e ano. Ex:
+```json
 {
     "de_Elemento": "Obrigações Patronais",
     "cd_Elemento": "31301300"
 }
+```
 
 Também observei que o endpoint para exportar os dados como PDF não está protegido com reCaptcha.
 Isso possibilitou a extração dos dados básicos disponíveis nesse relatório.
@@ -76,7 +84,7 @@ E o resultado foi o script [bahia/passo3.py](bahia/passo3.py).
 Porém, esse script não retorna todos os dados necessários, apenas os dados básicos.
 O script também não está completo, ainda é preciso iterar por todas as cidades disponíveis.
 
-Um exemplo do resultado obtido poder ser verificado em [bahia/dados/expenses.csv](bahia/dados/expenses.csv)
+Um exemplo do resultado obtido, ainda incompleto, poder ser visualizado em [bahia/dados/expenses.csv](bahia/dados/expenses.csv)
 
 ## Recomendações
 
