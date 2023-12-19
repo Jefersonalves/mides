@@ -93,7 +93,10 @@ Os dados estão disponíveis em um dashboard do Qlick sense e a comunicação co
 ## Scraping
 
 ### Passo 1
-Como primeira abordagem para esse site, observei as mensagens trocadas via web socket entre o site e dashboard.
+Como primeira abordagem para esse site, observei as mensagens trocadas via web socket entre o site e dashboard como pode ser visto na imagem a seguir
+
+![image2](images/2.png)
+
 Tentei traçar o caminho para usar o mínimo possível de mensagens e reproduzir a comunicação.
 Ainda não consegui obter os dados, mas a conexão foi estabelecida e várias mensagens foram trocadas com sucesso.
 O script [santa_catarina/passo1.py](santa_catarina/passo1.py) exemplifica a troca de mensagens.
